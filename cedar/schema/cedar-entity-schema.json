@@ -1,0 +1,183 @@
+{
+    "AgentAuthz": {
+        "entityTypes": {
+            "Agent": {
+                "shape": {
+                    "type": "Record",
+                    "attributes": {
+                        "trust_level": {
+                            "type": "Long",
+                            "required": true
+                        },
+                        "namespace": {
+                            "type": "String",
+                            "required": true
+                        },
+                        "registered_capabilities": {
+                            "type": "Set",
+                            "element": {
+                                "type": "String"
+                            },
+                            "required": true
+                        },
+                        "lifecycle_stage": {
+                            "type": "String",
+                            "required": true
+                        },
+                        "trust_zone": {
+                            "type": "String",
+                            "required": false
+                        }
+                    }
+                }
+            },
+            "Tool": {
+                "shape": {
+                    "type": "Record",
+                    "attributes": {
+                        "namespace": {
+                            "type": "String",
+                            "required": true
+                        },
+                        "risk_level": {
+                            "type": "String",
+                            "required": true
+                        },
+                        "data_classification": {
+                            "type": "String",
+                            "required": false
+                        }
+                    }
+                }
+            }
+        },
+        "actions": {
+            "invoke_tool": {
+                "appliesTo": {
+                    "principalTypes": [
+                        "Agent"
+                    ],
+                    "resourceTypes": [
+                        "Tool"
+                    ],
+                    "context": {
+                        "type": "Record",
+                        "attributes": {
+                            "originating_user": {
+                                "type": "Record",
+                                "required": true,
+                                "attributes": {
+                                    "user_id": {
+                                        "type": "String",
+                                        "required": true
+                                    },
+                                    "role": {
+                                        "type": "String",
+                                        "required": true
+                                    },
+                                    "mfa_verified": {
+                                        "type": "Boolean",
+                                        "required": true
+                                    },
+                                    "authentication_method": {
+                                        "type": "String",
+                                        "required": true
+                                    },
+                                    "session_id": {
+                                        "type": "String",
+                                        "required": true
+                                    }
+                                }
+                            },
+                            "delegation_depth": {
+                                "type": "Long",
+                                "required": true
+                            },
+                            "target_capabilities": {
+                                "type": "Set",
+                                "element": {
+                                    "type": "String"
+                                },
+                                "required": false
+                            },
+                            "requested_capabilities": {
+                                "type": "Set",
+                                "element": {
+                                    "type": "String"
+                                },
+                                "required": false
+                            },
+                            "content_filter_score": {
+                                "type": "Long",
+                                "required": false
+                            }
+                        }
+                    }
+                }
+            },
+            "delegate_task": {
+                "appliesTo": {
+                    "principalTypes": [
+                        "Agent"
+                    ],
+                    "resourceTypes": [
+                        "Agent"
+                    ],
+                    "context": {
+                        "type": "Record",
+                        "attributes": {
+                            "originating_user": {
+                                "type": "Record",
+                                "required": false,
+                                "attributes": {
+                                    "user_id": {
+                                        "type": "String",
+                                        "required": true
+                                    },
+                                    "role": {
+                                        "type": "String",
+                                        "required": true
+                                    },
+                                    "mfa_verified": {
+                                        "type": "Boolean",
+                                        "required": true
+                                    },
+                                    "authentication_method": {
+                                        "type": "String",
+                                        "required": true
+                                    },
+                                    "session_id": {
+                                        "type": "String",
+                                        "required": true
+                                    }
+                                }
+                            },
+                            "delegation_depth": {
+                                "type": "Long",
+                                "required": true
+                            },
+                            "target_capabilities": {
+                                "type": "Set",
+                                "element": {
+                                    "type": "String"
+                                },
+                                "required": true
+                            },
+                            "requested_capabilities": {
+                                "type": "Set",
+                                "element": {
+                                    "type": "String"
+                                },
+                                "required": true
+                            },
+                            "content_filter_score": {
+                                "type": "Long",
+                                "required": false
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

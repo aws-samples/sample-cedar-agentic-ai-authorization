@@ -1,0 +1,49 @@
+{
+    "originating_user": {
+        "type": "Record",
+        "attributes": {
+            "user_id": {
+                "type": "String",
+                "required": true
+            },
+            "role": {
+                "type": "String",
+                "required": true
+            },
+            "mfa_verified": {
+                "type": "Boolean",
+                "required": true
+            },
+            "authentication_method": {
+                "type": "String",
+                "required": true
+            },
+            "session_id": {
+                "type": "String",
+                "required": true
+            }
+        }
+    },
+    "delegation_depth": {
+        "type": "Long",
+        "required": true
+    },
+    "target_capabilities": {
+        "type": "Set",
+        "element": {
+            "type": "String"
+        },
+        "required": false
+    },
+    "requested_capabilities": {
+        "type": "Set",
+        "element": {
+            "type": "String"
+        },
+        "required": false
+    },
+    "content_filter_score": {
+        "type": "Long",
+        "required": false
+    }
+}

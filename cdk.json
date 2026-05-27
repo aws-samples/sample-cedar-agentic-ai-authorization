@@ -1,0 +1,15 @@
+{
+  "app": ".venv/bin/python app.py",
+  "context": {
+    "account_id": "123456789012",
+    "region": "us-east-1",
+    "guardrail_id": "YOUR_GUARDRAIL_ID",
+    "default_max_delegation_depth": 5,
+    "cedar_evaluator_provisioned_concurrency": 10,
+    "policy_cache_ttl_seconds": 60,
+    "signing_key_secret_name": "agent-authz/signing-key",
+    "denial_rate_alarm_threshold": 0.1,
+    "alarm_evaluation_periods": 5,
+    "api_gateway_throttle_rate": 1000
+  }
+}
