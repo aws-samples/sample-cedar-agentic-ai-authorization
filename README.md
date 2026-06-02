@@ -276,7 +276,7 @@ The system validates 9 formal correctness properties using Hypothesis property-b
 
 ## Conclusion
 
-This reference implementation demonstrates how to enforce least-privilege authorization in multi-agent AI delegation chains using a three-layer Cedar policy model on AWS. By combining agent capability checks (L1), delegation path constraints (L2), and originating user authorization (L3), the system prevents privilege escalation through agent delegation chains. Deploy this implementation to your AWS account and customize the Cedar policies to match your agent delegation requirements. For more information, see the [Cedar policy language documentation](https://docs.cedarpolicy.com/) and the [Amazon Verified Permissions User Guide](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/).
+This reference implementation demonstrates how to enforce least-privilege authorization in multi-agent AI delegation chains using a three-layer Cedar policy model on AWS. By combining agent capability checks (L1), delegation path constraints (L2), and originating user authorization (L3), the system prevents privilege escalation through agent delegation chains. The reference implementation models sequential delegation chains; parallel (diamond) delegation patterns require extending the envelope schema to support branching. Deploy this implementation to your AWS account and customize the Cedar policies to match your agent delegation requirements. For more information, see the [Cedar policy language documentation](https://docs.cedarpolicy.com/) and the [Amazon Verified Permissions User Guide](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/).
 
 For production deployments, consider extending this pattern with:
 
